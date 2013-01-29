@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>Fantasy Interactive - Experiment: minedraft</title>
+	<title>Fantasy Interactive - Labs Experiment: Minedraft</title>
 	<meta name="author" content="Carl Calderon">
-	
+
 	<style type="text/css" media="screen">
 		* { margin: 0; padding: 0; }
 		body { overflow: hidden; background: #FFF; }
@@ -12,7 +12,7 @@
 		h2 { margin-bottom: 5px}
 		#viewport { background: #FFF; width: 100%; height: 100%; }
 		#instructions
-		{ 
+		{
 			font: 11px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
 			display: block;
 			position: fixed;
@@ -23,7 +23,7 @@
 		}
 		#instructions ul { list-style: none; }
 	</style>
-	
+
 	<script src="assets/js/dat.gui.min.js"></script>
 	<script src="assets/js/Tween.js"></script>
 	<script src="assets/js/Three.js"></script>
@@ -31,16 +31,16 @@
 	<script src="assets/js/ImprovedNoise.js"></script>
 	<script src="assets/js/log-min.js"></script>
 	<script src="assets/js/minedraft.js"></script>
-	
+
 </head>
 <body>
-	
+
 	<div id="viewport"></div>
 	<div id="instructions">
 		<h2>Usage</h2>
 		<p>
 			Define your settings in the right hand panel. Higher values would give bigger worlds but also slower generation.<br/><br/>
-			Place your cursor in the center of the browser and press "Q" for free-look. 
+			Place your cursor in the center of the browser and press "Q" for free-look.
 		</p>
 		<h2>Movement:</h2>
 		<p>
@@ -55,7 +55,7 @@
 		</p>
 	</div>
 	<script type="text/javascript" charset="utf-8">
-	
+
 		logging.title = 'minedraft';
 
 		// check if user has WebGL support
@@ -69,16 +69,16 @@
 		{
 			// get seed from hash (if any)
 			var seed = parseInt(window.location.hash.substring(1));
-			
+
 			// construct game
 			var game = new minedraft( 'viewport', seed || null );
-			
+
 			// start rendering
 			(function animate() {
 				requestAnimationFrame( animate );
 				game.render();
 			})();
-			
+
 			// create modifiers
 			var gui = new dat.GUI({width: 300});
 				gui.add(config, 'chunk_size', 16, 256).step(16).name('Chunk Size');
